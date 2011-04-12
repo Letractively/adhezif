@@ -1,0 +1,1 @@
+This folder will contain log file to debug the Web site.

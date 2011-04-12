@@ -1,0 +1,29 @@
+<?php
+$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+$this->headTitle()->setSeparator(' - ');
+$this->headTitle('AdhéZiF is an Association tool in Zend Framework');
+echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<?php echo $this->headMeta(); ?>
+<?php echo $this->headTitle(); ?>
+<?php echo $this->headLink()->appendStylesheet('/css/global.css') ?>
+</head>
+<body>
+    <div id="header">
+    <div id="header-logo">
+        <b>Adh&eacute;zif</b>
+    </div>
+    <div id="header-navigation" style="float: right">
+        <a href="<?php echo $this->url(
+            array('controller'=>'member'),
+            'default',
+            true) ?>">Membres</a>
+    </div>
+</div>
+<div id="content">
+<h1><?php echo $this->escape($this->title); ?></h1>
+<?php echo $this->layout()->content; ?>
+</div>
+</body>
+</html>

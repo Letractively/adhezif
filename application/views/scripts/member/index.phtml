@@ -1,0 +1,23 @@
+<br /><br />
+<div id="view-content">
+	<p><a href="<?php echo $this->url(
+    array(
+        'controller' => 'member',
+        'action'     => 'add'
+    ),
+    'default',
+    true) ?>">Enregistrez vous comme nouveau membre du site</a></p>
+<p class="TabMemberListTitle">Liste des Membres : </p>
+<table class="TabMemberList">
+    <tr>
+        <th>Pr&eacute;nom</th>
+        <th>Nom</th>
+    </tr>
+    <?php foreach ($this->entries as $entry): ?>
+    <tr>
+        <td><?php echo $this->escape($entry->firstname)?></td>
+        <td><?php echo $this->escape($entry->lastname) ?></td>
+    </tr>
+    <?php endforeach ?>
+</table>
+</div>

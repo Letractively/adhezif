@@ -1,0 +1,45 @@
+<br /><br />
+<div id="view-content">
+Bonjour, Ajoutez vous &agrave; la liste des membres:	<br />
+<em>Disclaimer: En remplissant ce formulaire, vous acceptez les CGV du site.</em><br />
+<code>
+    Conform&eacute;ment &agrave; la loi informatique et libert&eacute; ,vous disposez d'un droit d'acc&egrave;s et de rectification des donn&eacute;es vous concernant.
+</code>
+<?php
+        $this->form->setAction($this->url());
+        echo $this->form;
+?>
+
+<!--
+<form action="<= $this->escape($this->form->getAction()) ?>" method="< ?= $this->escape($this->form->getMethod()) ?>">
+ 
+<fieldset>
+    <legend>Demographics</legend>
+
+        Please provide us the following information so we can know more about
+        you.
+
+    < ?= $this->form->age ?>
+    < ?= $this->form->country ?>
+
+</fieldset>
+
+<fieldset>
+    <legend>User Information</legend>
+
+        Now please tell us who you are and how to contact you.
+
+    < ?= $this->form->username ?>
+    < ?= $this->form->firstname ?>
+    < ?= $this->form->lastname ?>
+    < ?= $this->form->email ?>
+    < ?= $this->form->gender ?>
+    < ?= $this->form->agreement ?
+
+</fieldset>
+
+< ?= $this->form->save ?>
+</form>
+
+-->
+</div>
