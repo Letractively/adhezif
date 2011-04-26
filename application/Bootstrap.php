@@ -12,13 +12,25 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $logger = $this->getResource('Log');
         assert($logger != null);
         Zend_Registry::set('Zend_Log', $logger);
+
+
+    }
+    protected function _initNavigation(){
+        $this->bootstrap('layout');
+        $layout=$this->getResource('layout');
+        $view=$layout->getView();
+
+        $navMenu=new Zend_Navigation(new Zend_Config_Xml(APPLICATION_PATH."/configs/navigation.xml","nav"));
+        $view->navigation($navMenu);
     }
 
-    protected function _initDoctype()
-    {
-        $this->bootstrap('view');
-        $view = $this->getResource('view');
-        $view->doctype('XHTML1_STRICT');
+    protected function _initTranslation(){
+        $transalation= new Zend_Translate_Adapter_Array(APPLICATION_PATH . '/languages/fr.php',"fr");
+        $transalation->setLocale("fr");
+        Zend_Registry::set('Zend_Translate', $transalation);
+
     }
+
+
 }
 

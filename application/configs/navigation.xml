@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <nav>
+        <login>
+            <label>Login</label>
+            <controller>Authentication</controller>
+            <action>Login</action>
+            <class>ssMenu</class>
+        </login>
+        <logout>
+            <label>Logout</label>
+            <controller>Authentication</controller>
+            <action>Logout</action>
+            <class>ssMenu</class>
+        </logout>
+        <Adherents>
+            <label>Adhérents</label>
+            <controller>Index</controller>
+            <class>ssMenu</class>
+            <pages>
+                <ajout>
+                    <label>Ajouter un adhérent</label>
+                    <action>Add</action>
+                </ajout>
+                <listing>
+                    <label>Liste des adhérents</label>
+                    <action>Index</action>
+                </listing>
+            </pages>
+        </Adherents>
+        <Cotisation>
+            <label>Cotisation</label>
+            <controller>Cotisation</controller>
+            <class>ssMenu</class>
+            <pages>
+                <cotisadd>
+                    <label>Saisir une cotisation</label>
+                    <controller>Cotisation</controller>
+                    <action>Add</action>
+                </cotisadd>
+                <cotislist>
+                    <label>Liste des cotisations</label>
+                    <controller>Cotisation</controller>
+                    <action>Index</action>
+                </cotislist>
+            </pages>
+        </Cotisation>
+    </nav>
+</config>

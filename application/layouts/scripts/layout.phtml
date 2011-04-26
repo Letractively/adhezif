@@ -2,25 +2,27 @@
 $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
 $this->headTitle()->setSeparator(' - ');
 $this->headTitle('AdhéZiF is an Association tool in Zend Framework');
-echo $this->doctype(); ?>
+echo $this->doctype();
+?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <?php echo $this->headMeta(); ?>
 <?php echo $this->headTitle(); ?>
-<?php echo $this->headLink()->appendStylesheet('/css/global.css') ?>
+<?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/CSS/site.css');?>
 </head>
 <body>
+
     <div id="header">
-    <div id="header-logo">
-        <b>Adh&eacute;zif</b>
+        <img src="<?php echo $this->baseUrl().'/images/bandeauhaut.png' ;?>" ></img>
+
+    <div id="leftMenu">
+        <?php if(Zend_Auth::getInstance()->hasIdentity()){;?>
+        <p id="Bienvenue">Bienvenue <br /><?php echo Zend_Auth::getInstance()->getIdentity()->firstname." ".Zend_Auth::getInstance()->getIdentity()->lastname ;};?></p>
+        <?php echo $this->navigation()->menu();?>
     </div>
-    <div id="header-navigation" style="float: right">
-        <a href="<?php echo $this->url(
-            array('controller'=>'member'),
-            'default',
-            true) ?>">Membres</a>
+    <div id="chemin" >
+    <?php echo $this->navigation()->breadcrumbs()->setSeparator(" -> ");?>
     </div>
-</div>
 <div id="content">
 <h1><?php echo $this->escape($this->title); ?></h1>
 <?php echo $this->layout()->content; ?>

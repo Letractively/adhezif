@@ -1,45 +1,86 @@
-<style>
-    a:link,
-    a:visited
-    {
-        color: #0398CA;
-    }
+<?php 
+$this->title = "Liste des adhérents";
+$this->headTitle($this->title);
+?>
 
-    span#zf-name
-    {
-        color: #91BE3F;
-    }
+<h1><?php echo $this->title;?></h1>
+<table cellspacing="0" cellpadding="0">
+    <tr class="tabHeader">
+        <th width="250" class="listing left">Nom</th>
+        <th>Pseudo</th>
+        <th>Status</th>
+        <th>Actif</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+    </tr>
+<?php $i=1;foreach($this->members as $member) : ?>
+    <tr class="ligne<?php if($i++%2==0) { echo "Paire";}else{ echo "Impaire" ;}?>">
+        <td> <?php         
+            if ($member->sex == "M") {
+                ?>
+                <img src="<?php echo $this->baseUrl();?>/images/icon-male.png" Alt="[M]" align='middle'width="10" height="12"/>
+            <?php }        
+            else {
+                ?>
+                <img src="<?php echo $this->baseUrl();?>/images/icon-female.png" Alt="[F]" align='middle'width="10" height="12"/>                
+            <?php    
+            }              
+            if (strlen($member->email)) {
+            ?>
+            <a class="icon" href="mailto:<?php echo $member->email;?>">
+            <img src="<?php echo $this->baseUrl();?>/images/icon-mail.png" Alt="[Courriel]" align="middle" border="0" width="14" height="10"/>
+            </a>
+            <?php }
+            else {
+                ?>
+            <img src="<?php echo $this->baseUrl();?>/images/icon-empty.png" Alt="" align="middle" width="14" height="10"/>
+            <?php
+            }
+            ?>
+            <img src="<?php echo $this->baseUrl();?>/images/icon-empty.png" Alt="" align="middle" width="12" height="13"/>
+            <?php
+            echo $this->escape($member->lastname)." ".$this->escape($member->firstname);?></td>
+        <td align="center"><?php echo $this->escape($member->username);?></td>
+        <td align="center"><?php echo $this->escape($member->label);?></td>
+        <td align="center"><?php echo $this->escape($member->state);?></td>
+        <td align="center"><img src="<?php echo $this->baseUrl()."/pictures/".substr(strrchr($this->escape($member->picture), DIRECTORY_SEPARATOR),1); ?>" alt="" width="60" height="60"></img>
+        </td>
+        <td>
+        <img src="<?php echo $this->baseUrl();?>/images/icon-empty.png" Alt="" align="middle" width="12" height="13"/>            
+        <a class="icon" href="<?php 
+            echo $this->url(array('controller'=>'index',
+                    'action'=>'edit', 'id'=>$member->id));?>">
+            <img src="<?php echo $this->baseUrl();?>/images/icon-edit.png"/>
+        </a>
+        <a class="icon" href="<?php  
+            echo  $this->url(array('controller'=>'cotisation',
+                    'action'=>'add', 'id'=>$member->id));?>">
+            <img src="<?php echo $this->baseUrl();?>/images/icon-euro.png"/>
+        </a>        
+        <a class="icon" href="<?php  
+            echo  $this->url(array('controller'=>'index',
+                    'action'=>'delete', 'id'=>$member->id));?>">
+            <img src="<?php echo $this->baseUrl();?>/images/icon-trash.png"/>
+        </a>
+        <a class="icon" href="<?php
+            echo  $this->url(array('controller'=>'index',
+            'action'=>'switchstate', 'id'=>$member->id));?> ">
+            <?php
+            if ($member->state==1){?>
+                <img src="<?php echo $this->baseUrl();?>/images/icon-disable.png" alt="Disable" title="Disable"/>
+            <?php }else{ ?>
+                <img src="<?php echo $this->baseUrl();?>/images/icon-enable.png" alt="Enable" title="Enable"/>
+            <?php
+            }
+            ?>
+        </a>
 
-    div#welcome
-    {
-        color: #FFFFFF;
-        background-image: url(http://framework.zend.com/images/bkg_header.jpg);
-        width:  600px;
-        height: 400px;
-        border: 2px solid #444444;
-        overflow: hidden;
-        text-align: center;
-    }
 
-    div#more-information
-    {
-        background-image: url(http://framework.zend.com/images/bkg_body-bottom.gif);
-        height: 100%;
-    }
-</style>
-<div id="welcome">
-    <h1><strong>Adh&eacute;zif</strong> vous souhaite::Welcome to the <span id="zf-name">Zend Framework!</span></h1>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>
 
-    <h3>Cliquer que le lien en haut &agrave; droite.</h3>
+<div id="more-information">
 
-    <div id="more-information">
-        <p><img src="http://framework.zend.com/images/PoweredBy_ZF_4LightBG.png" /></p>
-        <h1>CTRL + <font size=+2>+</font> ou CTRL + Molette pour Zoomer</h1>
-        <p>
-            Helpful Links: <br />
-            <a href="http://framework.zend.com/">Zend Framework Website</a> |
-            <a href="http://framework.zend.com/manual/en/">Zend Framework Manual</a>
-        </p>
-    </div>
 </div>
-

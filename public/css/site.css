@@ -1,0 +1,176 @@
+body, html {
+	margin: 0.5px;
+	font-family: Verdana,sans-serif;
+ 	width: 1000px;
+    margin: auto; /* Pour centrer notre page */
+    margin-top: 20px; /* Pour éviter de coller avec le haut de la fenêtre du navigateur. Essayez d'enlever pour voir ! */
+    margin-bottom: 20px;    /* Idem pour le bas du navigateur */
+}
+h1 {
+	font-size: 1.4em;
+	color: #080000;	
+}
+
+a {
+	color: #080000;
+}
+
+.errors {
+	color: red;
+	font-weight: bold;
+}
+
+/* Gestion des tableaux */
+th{
+	background-color:  rgb(237,219,168);
+	text-align: center;
+        border-collapse : collapse;
+        border-color: blue;
+}
+
+tr.lignePaire{
+    background-color: #EFEFEF;
+}
+td a.lien {
+	color: blue;
+		}
+td a.lien:hover{
+   background-color: Orange;
+   font-weight: bold;
+}
+
+td a.icon {
+    text-decoration: none;
+		}
+                
+td a.icon img {
+    border: 0;
+}                
+                
+td a.icon:hover{
+   text-decoration: none;
+   font-weight: normal;
+}
+
+/* gestion des formulaire */
+
+
+
+form fieldset {
+    display: block;
+    width:700px;
+}
+
+form fieldset dt { 
+display: block;
+float: left;
+width: 250px;
+}
+
+form fieldset dd {
+display: inline-block;
+width: 400px;
+}
+form.sansgroupe dt {
+display: block;
+float: left;
+width: 250px;
+}
+
+form.sansgroupe dd {
+display: inline-block;
+width: 400px;
+}
+#submit{
+    margin-top: 20px;
+    font-weight: bold;
+    width: 120px;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  
+}
+
+/* Gestion de l'en-tete */
+
+#chemin  {
+
+    text-align: right;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 0.7em;
+    text-decoration: none;
+    
+}
+
+
+/* Gestion du menu de navigation à gauche */
+
+#leftMenu{
+   float: left; /* Le menu flottera à gauche */
+   width: 180px; /* Très important : donner une taille au menu */
+}
+
+p#Bienvenue {
+    color:rgb(152,152,253);
+    font-weight: bold;
+    text-align: center;
+}
+.navigation {
+    padding: 0;
+    width: 100%;
+}
+
+.navigation a {
+
+    /*font-weight: bold;*/
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+.navigation li {
+
+    background-color: rgb(237,219,168);
+    display: block;
+    margin:0px;
+    padding: 0px;
+    margin-bottom: 10px;
+    text-indent: 7px;}
+
+.navigation li ul{
+   padding: 0;
+}
+
+.navigation li ul li {
+    background-color: rgb(244,234,208);
+    font-size: 0.8em;
+    margin:0px;
+    padding: 0px;
+    text-indent: 18px;
+
+}
+
+.navigation li.active a {
+   font-weight: bold;
+}
+.navigation li.active li a {
+   font-weight: normal;
+}
+.navigation li li.active a{
+    font-weight: bold;
+}
+
+
+
+.navigation a:hover {
+ color: orange;
+}
+
+
+#content{
+   margin-left: 200px;
+   margin-bottom: 20px;
+   padding: 5px;
+}
+

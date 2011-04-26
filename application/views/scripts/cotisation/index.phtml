@@ -1,0 +1,26 @@
+<?php
+$this->title = "Cotisations enregistrées";
+$this->headTitle($this->title);
+?>
+<h1><?php echo $this->title;?></h1>
+<table cellspacing="0" cellpadding="0">
+    <tr>
+        <th width="130">date</th>
+        <th width="170">Adherent</th>
+        <th width="200">Libelle</th>
+        <th width="100">Montant</th>
+        <th width="150">Méthode</th>
+        <th width="200">Compte</th>
+    </tr>
+<?php $i=1;foreach($this->cotisations as $cotisation) : ?>
+    <tr class="ligne<?php if($i%2==0) { echo "Paire";}else{ echo "Impaire" ;}?>"">
+        <td><?php echo $this->escape($cotisation['date']);?></td>
+        <td><?php echo $this->escape($cotisation['firstname']." ".$cotisation['lastname']);?></td>
+        <td><?php echo $this->escape($cotisation['label']);?></td>
+        <td align="right"><?php echo $this->escape($cotisation['amount']);?></td>
+        <td align="center"><?php echo $this->escape($cotisation['payment_method']);?></td>
+        <td><?php echo $this->escape($cotisation['account_label']);$i++;?></td>
+    </tr>
+<?php endforeach; ?>
+</table>
+
